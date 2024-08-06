@@ -28,7 +28,16 @@ void leds_turn_off(int led);
 /**
  * @brief Funcion para "encender" todos los leds juntos.
  *
+ * @note La funcion no necesita ningun pararametro.
+ *
  */
 void leds_turn_on_all(void);
+
+/**
+ * @brief Funcion para "apagar" todos los leds juntos.
+ *
+ * @note La funcion no necesita ningun pararametro.
+ */
+void leds_turn_off_all(void);
 
 #endif

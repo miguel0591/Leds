@@ -27,3 +27,7 @@ void leds_turn_off(int led) {
 void leds_turn_on_all(void) {
     *puerto_vitual = ALL_LEDS_ON;
 };
+
+void leds_turn_off_all(void) {
+    *puerto_vitual = ALL_LEDS_OFF;
+};

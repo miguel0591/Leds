@@ -1,7 +1,5 @@
 /*
 BACKLOG
-- Prender todos los leds juntos
-- Prender y apagar todos los leds juntos
 - Prender un led, voy a consultar el estado y tiene que figurar como prendido.
 - Voy a consultar el estado de un led apagado y tiene que figurar como apagado.
 - Revisar que los leds estan bien mapeados en la memoria
@@ -102,4 +100,19 @@ void test_prender_dos_leds_y_apagar_un_solo_led(void) {
 void test_prender_todos_los_leds_juntos(void) {
     leds_turn_on_all();
     TEST_ASSERT_EQUAL_HEX16(0xFFFF, puerto_virtual);
+}
+
+/**
+ * @brief Sexto Test: Prender y apagar todos los leds juntos
+ *
+ * <ul>
+ *   <li>Paso 1: Se uso la funcion para "encender" todos los leds(ya probada en el test 5).</li>
+ *   <li>Paso 2: Se uso la funcion para "apagar" todos los leds.</li>
+ *   <li>Paso 3: Se chequeo si el puerto virtual tiene el valor correcto.</li>
+ * </ul>
+ */
+void test_prender_y_apagar_todos_los_leds_juntos(void) {
+    leds_turn_on_all();
+    leds_turn_off_all();
+    TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual);
 }
