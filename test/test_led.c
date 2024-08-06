@@ -59,7 +59,8 @@ void test_prender_un_solo_led(void) {
  *
  * <ul>
  *   <li>Paso 1: Enciendo el led (3), usando la funcion de encendido (ya probada en la prueba
- * 2).</li> <li>Paso 2: Apago el led (3), usando la funcion de apagado que queremos probar.</li>
+ * 2).</li>
+ *   <li>Paso 2: Apago el led (3), usando la funcion de apagado que queremos probar.</li>
  *   <li>Paso 3: Chequemos el resultado esperado sobre le puerto.</li>
  * </ul>
  */
@@ -75,9 +76,12 @@ void test_apagar_un_solo_led(void) {
  *
  * <ul>
  *   <li>Paso 1: Enciendo el led (3), usando la funcion de encendido (ya probada en la prueba
- * 2).</li> <li>Paso 2: Enciendo el led (7), usando la funcion de encendido (ya probada en la prueba
- * 2).</li> <li>Paso 3: Apago el led (3), usando la funcion de apagado.</li> <li>Paso 4: Chequemos
- * el resultado esperado sobre le puerto (es decir, que solo este prendido el led 7).</li>
+ * 2).</li>
+ *   <li>Paso 2: Enciendo el led (7), usando la funcion de encendido (ya probada en la prueba
+ * 2).</li>
+ *   <li>Paso 3: Apago el led (3), usando la funcion de apagado.</li>
+ *   <li>Paso 4: Chequemos el resultado esperado sobre le puerto (es decir, que solo este prendido
+ * el led 7).</li>
  * </ul>
  */
 void test_prender_dos_leds_y_apagar_un_solo_led(void) {
@@ -85,4 +89,17 @@ void test_prender_dos_leds_y_apagar_un_solo_led(void) {
     leds_turn_on(7);
     leds_turn_off(3);
     TEST_ASSERT_EQUAL_HEX16(1 << 6, puerto_virtual);
+}
+
+/**
+ * @brief Quinto Test: Encender todos los leds a la vez.
+ *
+ * <ul>
+ *   <li>Paso 1: Se uso la funcion para encender todos los leds.</li>
+ *   <li>Paso 2: Chequeo si el valor del puerto virtual, tiene el valor correcto.</li>
+ * </ul>
+ */
+void test_prender_todos_los_leds_juntos(void) {
+    leds_turn_on_all();
+    TEST_ASSERT_EQUAL_HEX16(0xFFFF, puerto_virtual);
 }

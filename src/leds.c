@@ -3,6 +3,7 @@
 #define LED_OFFSET   1
 #define FIRST_BIT    1
 #define ALL_LEDS_OFF 0x0000;
+#define ALL_LEDS_ON  0xFFFF;
 
 static uint16_t * puerto_vitual;
 
@@ -21,4 +22,8 @@ void leds_turn_on(int led) {
 
 void leds_turn_off(int led) {
     *puerto_vitual &= ~led_to_mask(led);
+};
+
+void leds_turn_on_all(void) {
+    *puerto_vitual = ALL_LEDS_ON;
 };

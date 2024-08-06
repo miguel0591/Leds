@@ -19,10 +19,16 @@ void leds_init(uint16_t * puerto);
 void leds_turn_on(int led);
 
 /**
- * @brief Funcion pra "apagar" un led
+ * @brief Funcion para "apagar" un led
  *
  * @param led: nuevo de led que se quiere encender
  */
 void leds_turn_off(int led);
+
+/**
+ * @brief Funcion para "encender" todos los leds juntos.
+ *
+ */
+void leds_turn_on_all(void);
 
 #endif
