@@ -1,7 +1,5 @@
 /*
 BACKLOG
-- Prender un led, voy a consultar el estado y tiene que figurar como prendido.
-- Voy a consultar el estado de un led apagado y tiene que figurar como apagado.
 - Revisar que los leds estan bien mapeados en la memoria
 */
 #include "unity.h"
@@ -123,13 +121,32 @@ void test_prender_y_apagar_todos_los_leds_juntos(void) {
  * <ul>
  *   <li>Paso 1: Se uso la funcion para "encender" todos los leds(ya probada en el test 5).</li>
  *   <li>Paso 2: Se uso la funcion para "apagar" todos los leds.</li>
- *   <li>Paso 3: Se chequeo si el puerto virtual tiene el valor correcto.</li>
+ *   <li>Paso 3: Se chequeo el valor de retorno es correcto.</li>
+ *   <li>Paso 4: Se chequeo si el puerto virtual tenga el valor correcto.</li>
  * </ul>
  */
-
 void test_preder_un_led_y_consultar_su_estado(void) {
     uint8_t status = 3;
-    leds_turn_on(5);
-    status = leds_status(&puerto_virtual, 5);
+    leds_turn_on(4);
+    status = leds_status(&puerto_virtual, 4);
     TEST_ASSERT_EQUAL_HEX16(0x0001, status);
+    TEST_ASSERT_EQUAL_HEX16(1 << 3, puerto_virtual);
+}
+
+/**
+ * @brief Octavo Test: Consultar el estado de un led apagado y tiene que figurar como apagado.
+ * <ul>
+ *   <li>Paso 1: Enciendo todos los leds.</li>
+ *   <li>Paso 2: Apago un led determinado.</li>
+ *   <li>Paso 3: Se chequeo el valor de retorno es correcto.</li>
+ *   <li>Paso 4: Se chequeo si el puerto virtual tenga el valor correcto.</li>
+ * </ul>
+ */
+void test_consultar_estado_de_led_apagado_y_tiene_que_estar_apagado(void) {
+    uint8_t status = 3;
+    leds_turn_on_all();
+    leds_turn_off(4);
+    status = leds_status(&puerto_virtual, 4);
+    TEST_ASSERT_EQUAL_HEX16(0x0000, status);
+    TEST_ASSERT_EQUAL_HEX16(0xFFF7, puerto_virtual);
 }

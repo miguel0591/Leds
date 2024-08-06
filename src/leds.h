@@ -7,7 +7,7 @@
  * @brief Inicializacion de los led
  *
  *
- * @param puerto : direccion de memoria donde se encuentan los Leds
+ * @param puerto : Puerto donde se mapean los leds
  */
 void leds_init(uint16_t * puerto);
 
