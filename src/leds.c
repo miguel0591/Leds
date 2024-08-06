@@ -16,11 +16,11 @@ void leds_init(uint16_t * puerto) {
     *puerto = ALL_LEDS_OFF;
 };
 
-void leds_turn_on(int led) {
+void leds_turn_on(uint16_t led) {
     *puerto_vitual |= led_to_mask(led);
 }
 
-void leds_turn_off(int led) {
+void leds_turn_off(uint16_t led) {
     *puerto_vitual &= ~led_to_mask(led);
 };
 
@@ -30,4 +30,8 @@ void leds_turn_on_all(void) {
 
 void leds_turn_off_all(void) {
     *puerto_vitual = ALL_LEDS_OFF;
+};
+
+uint8_t leds_status(uint16_t * puerto_vitual, uint16_t led) {
+    return (*puerto_vitual & (led_to_mask(led))) ? 1 : 0;
 };

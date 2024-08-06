@@ -16,14 +16,14 @@ void leds_init(uint16_t * puerto);
  *
  * @param led : nuevo de led que se quiere encender
  */
-void leds_turn_on(int led);
+void leds_turn_on(uint16_t led);
 
 /**
  * @brief Funcion para "apagar" un led
  *
  * @param led: nuevo de led que se quiere encender
  */
-void leds_turn_off(int led);
+void leds_turn_off(uint16_t led);
 
 /**
  * @brief Funcion para "encender" todos los leds juntos.
@@ -39,5 +39,14 @@ void leds_turn_on_all(void);
  * @note La funcion no necesita ningun pararametro.
  */
 void leds_turn_off_all(void);
+
+/**
+ * @brief Funcion para chequear el estado de un led determinado
+ *
+ * @param puerto_vitual Puerto que se quiere chequear
+ * @param led Led que se quiere chequear
+ * @return uint8_t retorna 1 si esta "encendido" o 0 si esta "apagado"
+ */
+uint8_t leds_status(uint16_t * puerto_vitual, uint16_t led);
 
 #endif

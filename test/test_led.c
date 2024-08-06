@@ -116,3 +116,20 @@ void test_prender_y_apagar_todos_los_leds_juntos(void) {
     leds_turn_off_all();
     TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual);
 }
+
+/**
+ * @brief Septimo Test: Prender un led, voy a consultar el estado y tiene que figurar como prendido.
+ *
+ * <ul>
+ *   <li>Paso 1: Se uso la funcion para "encender" todos los leds(ya probada en el test 5).</li>
+ *   <li>Paso 2: Se uso la funcion para "apagar" todos los leds.</li>
+ *   <li>Paso 3: Se chequeo si el puerto virtual tiene el valor correcto.</li>
+ * </ul>
+ */
+
+void test_preder_un_led_y_consultar_su_estado(void) {
+    uint8_t status = 3;
+    leds_turn_on(5);
+    status = leds_status(&puerto_virtual, 5);
+    TEST_ASSERT_EQUAL_HEX16(0x0001, status);
+}
