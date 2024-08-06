@@ -6,12 +6,23 @@
 /**
  * @brief Inicializacion de los led
  *
- * @note Todos los Leds deben iniciar apagados
  *
  * @param puerto : direccion de memoria donde se encuentan los Leds
  */
 void leds_init(uint16_t * puerto);
+
+/**
+ * @brief Funcion para "encender" un led
+ *
+ * @param led : nuevo de led que se quiere encender
+ */
 void leds_turn_on(int led);
+
+/**
+ * @brief Funcion pra "apagar" un led
+ *
+ * @param led: nuevo de led que se quiere encender
+ */
 void leds_turn_off(int led);
 
 #endif
