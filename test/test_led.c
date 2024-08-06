@@ -150,3 +150,20 @@ void test_consultar_estado_de_led_apagado_y_tiene_que_estar_apagado(void) {
     TEST_ASSERT_EQUAL_HEX16(0x0000, status);
     TEST_ASSERT_EQUAL_HEX16(0xFFF7, puerto_virtual);
 }
+
+/**
+ * @brief Noveno Test: Revisar que los leds estan bien mapeados en la memoria
+ * <ul>
+ *   <li>Paso 1: Se encedieron un grupo de leds .</li>
+ *   <li>Paso 2: Se chequeo si el puerto virtual tenga el valor correcto.</li>
+ * </ul>
+ *
+ */
+void test_revisar_que_los_leds_estan_bien_mapeados_en_la_memoria(void) {
+    leds_turn_on(1);
+    leds_turn_on(2);
+    leds_turn_on(4);
+    leds_turn_on(7);
+    leds_turn_on(16);
+    TEST_ASSERT_EQUAL_HEX16(0x804B, puerto_virtual);
+}
