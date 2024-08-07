@@ -1,8 +1,19 @@
+/**
+ * @file leds.h
+ * @author Blanco Miguel Manuel (miguelmanuelblanco@gmail.com)
+ * @brief Archivo de cabecera "Driver leds usando TDD".
+ * @version 0.1
+ * @date 2024-07-04
+ *
+ * @copyright Copyright (c) 2024
+ */
 #ifndef LEDS_H
 #define LEDS_H
 
+/* === Including header files  ================================================================= */
 #include "stdint.h"
 
+/* === Public function declarations ============================================================ */
 /**
  * @brief Inicializacion de los led
  *
@@ -14,14 +25,14 @@ void leds_init(uint16_t * puerto);
 /**
  * @brief Funcion para "encender" un led
  *
- * @param led : nuevo de led que se quiere encender
+ * @param led : posicion del led que se quiere "encender"
  */
 void leds_turn_on(uint16_t led);
 
 /**
  * @brief Funcion para "apagar" un led
  *
- * @param led: nuevo de led que se quiere encender
+ * @param led: posicion del led que se quiere "apagar"
  */
 void leds_turn_off(uint16_t led);
 
