@@ -15,14 +15,15 @@ pre-commit install
 Para generar la documentación del proyecto se utiliza el siguiente comando:
 
 ```
-make doc
+doxygen
 
 ```
 
-Para compilar el proyecto se utiliza el siguiente comando:
+El repositorio usa ceedling como herramienta de automatizacion de las pruebas.
+para correlo ejecutar el comando:
 
 ```
-make all
+ceedling
 
 ```
 
